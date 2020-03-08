@@ -15,14 +15,16 @@ namespace Tests
 		}
 
         [Test]
-		[TestCase(570f, 11.56f)]
-        public void GetBarWidthBasedOnWindowWidth_SetNewValue_BarKeepsOnEdges(float _windowWidth, float _expectedSpriteWidth)
+		[TestCase(570f, 11.43f)]
+		[TestCase(1667f, 33.45f)]
+		[TestCase(250f, 5.02f)]
+		public void GetBarWidthBasedOnWindowWidth_SetNewValue_BarKeepsOnEdges(float _windowWidth, float _expectedSpriteWidth)
         {
-			Debug.Log(playerBar.GetWindowWidth());
-
 			float result = playerBar.GetBarWidthBasedOnWindowWidth(_windowWidth);
 
-			Assert.AreEqual((float)Math.Round(_expectedSpriteWidth, 2), (float)Math.Round(result, 2));
+			Assert.AreEqual(Utils.Truncate(_expectedSpriteWidth, 2), Utils.Truncate(result, 2));
         }
+
+
     }
 }
