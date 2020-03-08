@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerBar : MonoBehaviour
 {
-	private PlayerBarView playerBarView;
+	[SerializeField] private PlayerBarScriptableObject playerBarData;
 
-	private const float barDivisor = 49.8305f;
+	private PlayerBarView playerBarView;
 
 	private void Awake()
 	{
@@ -29,7 +29,7 @@ public class PlayerBar : MonoBehaviour
 
 	public float GetBarWidthBasedOnWindowWidth(float windowWidth)
 	{
-		float result = windowWidth / barDivisor;
+		float result = windowWidth / playerBarData.BarDivisor;
 		return (float)Math.Round(result, 2);
 	}
     
