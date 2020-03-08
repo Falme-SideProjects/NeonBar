@@ -7,6 +7,9 @@ public class BulletsManager : MonoBehaviour
 
 	private BulletsManagerView bulletsManagerView;
 	private Coroutine bulletsGenerationCoroutine;
+	private bool spawnDirection;
+
+	private const float spawnBulletDistance = 7f; 
 
 	private void Awake()
 	{
@@ -28,7 +31,8 @@ public class BulletsManager : MonoBehaviour
 		while(true)
 		{
 			yield return new WaitForSeconds(1f);
-			Instantiate(bulletPrefab, transform);
+			CreateNewBullet(spawnDirection);
+			spawnDirection = !spawnDirection;
 		}
 	}
 
@@ -36,4 +40,11 @@ public class BulletsManager : MonoBehaviour
 	{
 		StopCoroutine(bulletsGenerationCoroutine);
 	}
+
+	private void CreateNewBullet(bool up)
+	{
+		GameObject _bullet = Instantiate(bulletPrefab, transform);
+		_bullet.transform.localPosition = transform.localPosition + ( (up ? Vector3.up:Vector3.down) * spawnBulletDistance);
+	}
+	
 }

@@ -1,7 +1,8 @@
 {
     "name": "AsmdefBullets",
     "references": [
-        "GUID:904b329a2d1af154ebf37f7961618d5f"
+        "GUID:904b329a2d1af154ebf37f7961618d5f",
+        "GUID:07f5a4a0276d71e41874383b6f8d406c"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
