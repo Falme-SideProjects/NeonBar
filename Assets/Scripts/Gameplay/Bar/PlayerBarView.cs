@@ -48,4 +48,10 @@ public class PlayerBarView : MonoBehaviour
 	{
 		this.barGlow = newObject;
 	}
+
+	public void ChangeColor(Color32 newColor)
+	{
+		barSpriteRenderer.color =
+		barGlowSpriteRenderer.color = newColor;
+	}
 }

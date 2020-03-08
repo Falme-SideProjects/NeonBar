@@ -6,10 +6,16 @@ public class PlayerBar : MonoBehaviour
 	[SerializeField] private PlayerBarScriptableObject playerBarData;
 
 	private PlayerBarView playerBarView;
+	private Enums.Colors currentColor = Enums.Colors.Green;
 
 	private void Awake()
 	{
 		playerBarView = GetComponent<PlayerBarView>();
+	}
+
+	private void Start()
+	{
+		UpdateBarSize();
 	}
 
 	private void OnEnable()
@@ -22,9 +28,40 @@ public class PlayerBar : MonoBehaviour
 		EventManager.OnWindowResized.RemoveListener(UpdateBarSize);
 	}
 
+	private void Update()
+	{
+		VerifyPlayerChangedColor();
+	}
+
+	#region Color Methods
+
+	private void VerifyPlayerChangedColor()
+	{
+		if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeToGreen();
+		else if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeToRed();
+	}
+
+	private void ChangeToGreen()
+	{
+		currentColor = Enums.Colors.Green;
+		playerBarView.ChangeColor(playerBarData.colorGreen);
+	}
+
+	private void ChangeToRed()
+	{
+		currentColor = Enums.Colors.Red;
+		playerBarView.ChangeColor(playerBarData.colorRed);
+	}
+
+
+	#endregion
+
+	#region Bar Size Methods
 	private void UpdateBarSize()
 	{
-		playerBarView.ChangeBarSize(GetBarWidthBasedOnWindowWidth(GetWindowWidth()));
+		float _windowWidth = GetWindowWidth();
+		float _barWidth = GetBarWidthBasedOnWindowWidth(_windowWidth);
+		playerBarView.ChangeBarSize(_barWidth);
 	}
 
 	public float GetBarWidthBasedOnWindowWidth(float windowWidth)
@@ -41,4 +78,6 @@ public class PlayerBar : MonoBehaviour
 			return Screen.width;
 		#endif
 	}
+
+	#endregion
 }

@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2a0bc54eda53945af60074ef4a8813, type: 3}
   m_Name: PlayerBarData
   m_EditorClassIdentifier: 
+  colorGreen:
+    serializedVersion: 2
+    rgba: 4278255360
+  colorRed:
+    serializedVersion: 2
+    rgba: 4278190335
+  barDivisor: 49.8305
