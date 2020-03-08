@@ -1,0 +1,19 @@
+{
+    "name": "AsmdefEditorTestsBar",
+    "references": [
+        "GUID:d8720ebb733af6c4aae82235cf6209ff"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
