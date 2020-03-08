@@ -1,0 +1,15 @@
+{
+    "name": "AsmdefBullets",
+    "references": [
+        "GUID:904b329a2d1af154ebf37f7961618d5f"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
