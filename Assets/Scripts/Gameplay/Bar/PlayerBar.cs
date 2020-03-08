@@ -31,7 +31,29 @@ public class PlayerBar : MonoBehaviour
 	private void Update()
 	{
 		VerifyPlayerChangedColor();
+		VerifyPlayerSimulatedHit();
 	}
+
+	#region Receive Collision Methods
+
+	private void VerifyPlayerSimulatedHit()
+	{
+		if (Input.GetKeyDown(KeyCode.Q)) HitBulletInBar(Enums.Colors.Green);
+		else if (Input.GetKeyDown(KeyCode.W)) HitBulletInBar(Enums.Colors.Red);
+	}
+
+	private void HitBulletInBar(Enums.Colors bulletColor)
+	{
+		if(this.currentColor.Equals(bulletColor))
+		{
+			Debug.Log("Right color, +1 Point");
+		} else
+		{
+			Debug.Log("Wrong Color, No Points");
+		}
+	}
+
+	#endregion
 
 	#region Color Methods
 
