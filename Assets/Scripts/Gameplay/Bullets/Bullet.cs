@@ -5,12 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 	[SerializeField] private BulletDataScriptableObject bulletData;
+	[SerializeField] private ColorState colorState;
 
 	private BulletView bulletView;
 	private bool directionUp;
-	private Enums.Colors currentColor = Enums.Colors.Green;
 
-    void Awake()
+	void Awake()
     {
 		bulletView = GetComponent<BulletView>();
     }
@@ -18,12 +18,12 @@ public class Bullet : MonoBehaviour
 	private void Start()
 	{
 		int rand = Random.Range(0, 100);
-		Color32 color = Color.green;
+		Color32 color = colorState.colorsData.colorGreen;
 
 		if(rand>50)
 		{
-			currentColor = Enums.Colors.Red;
-			color = Color.red;
+			colorState.currentColor = Enums.Colors.Red;
+			color = colorState.colorsData.colorRed;
 		}
 
 		bulletView.ChangeColor(color);
@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
 		if(transform.localPosition.y < bulletData.distanceToCollide &&
 			transform.localPosition.y > -bulletData.distanceToCollide)
 		{
-			EventManager.OnBulletCollidedWithBar.Invoke(currentColor);
+			EventManager.OnBulletCollidedWithBar.Invoke(colorState.currentColor);
 			Destroy(gameObject);
 		}
 	}

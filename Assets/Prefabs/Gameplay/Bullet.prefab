@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: 302823f8f3858e64182320c69e619689, type: 2}
+  colorState:
+    currentColor: 0
+    colorsData: {fileID: 11400000, guid: 9f718159f9a6ce44eb599e6eeae752e0, type: 2}
 --- !u!114 &6949214776373568828
 MonoBehaviour:
   m_ObjectHideFlags: 0

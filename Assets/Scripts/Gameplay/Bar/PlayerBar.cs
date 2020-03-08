@@ -4,12 +4,13 @@ using UnityEngine;
 public class PlayerBar : MonoBehaviour
 {
 	[SerializeField] private PlayerBarScriptableObject playerBarData;
+	[SerializeField] private ColorState colorState;
 
 	private PlayerBarView playerBarView;
-	private Enums.Colors currentColor = Enums.Colors.Green;
 
 	private void Awake()
 	{
+		//colorState = new ColorState();
 		playerBarView = GetComponent<PlayerBarView>();
 	}
 
@@ -39,7 +40,7 @@ public class PlayerBar : MonoBehaviour
 	
 	private void HitBulletInBar(Enums.Colors bulletColor)
 	{
-		if(this.currentColor.Equals(bulletColor))
+		if(this.colorState.currentColor.Equals(bulletColor))
 		{
 			Debug.Log("Right color, +1 Point");
 		} else
@@ -60,14 +61,14 @@ public class PlayerBar : MonoBehaviour
 
 	private void ChangeToGreen()
 	{
-		currentColor = Enums.Colors.Green;
-		playerBarView.ChangeColor(playerBarData.colorGreen);
+		colorState.currentColor = Enums.Colors.Green;
+		playerBarView.ChangeColor(colorState.colorsData.colorGreen);
 	}
 
 	private void ChangeToRed()
 	{
-		currentColor = Enums.Colors.Red;
-		playerBarView.ChangeColor(playerBarData.colorRed);
+		colorState.currentColor = Enums.Colors.Red;
+		playerBarView.ChangeColor(colorState.colorsData.colorRed);
 	}
 
 

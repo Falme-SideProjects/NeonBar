@@ -22,7 +22,7 @@ namespace Tests
 		{
 			float _distanceSpawnX = bulletsManager.MaxDistanceToSpawnBulletInX(_screenWidth);
 
-			Assert.AreEqual(Utils.Truncate(_expected, 2),Utils.Truncate(_distanceSpawnX, 2));
+			Assert.AreEqual(Utils.Truncate(_expected, 2),Utils.Truncate(_distanceSpawnX, 2), 0.1f);
 		}
 
 

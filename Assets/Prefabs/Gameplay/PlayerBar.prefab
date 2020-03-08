@@ -205,6 +205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBarData: {fileID: 11400000, guid: a581084c58b947e43965ca6b9a612b12, type: 2}
+  colorState:
+    currentColor: 0
+    colorsData: {fileID: 11400000, guid: 9f718159f9a6ce44eb599e6eeae752e0, type: 2}
 --- !u!114 &6071788622301627808
 MonoBehaviour:
   m_ObjectHideFlags: 0

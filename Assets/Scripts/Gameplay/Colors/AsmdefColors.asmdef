@@ -1,10 +1,7 @@
 {
-    "name": "AsmdefBar",
+    "name": "AsmdefColors",
     "references": [
-        "GUID:b318c6ab376669c4d99d81c96154addc",
         "GUID:904b329a2d1af154ebf37f7961618d5f",
-        "GUID:cff07253a48d9c44bb890d32b72c5f0e",
-        "GUID:327ab838a5fefa44c8817e967c236786",
         "GUID:3d57255775792b44490fb4a9a93b07fa"
     ],
     "optionalUnityReferences": [],

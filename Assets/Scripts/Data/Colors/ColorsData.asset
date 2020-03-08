@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb7306e7a3c48c47ba51f174cc34390, type: 3}
-  m_Name: BulletData
+  m_Script: {fileID: 11500000, guid: 0d9ffab5782a5e64ea8d5e0f53e051ee, type: 3}
+  m_Name: ColorsData
   m_EditorClassIdentifier: 
-  distanceToCollide: 0.55
-  bulletVelocity: 2.29
+  colorGreen:
+    serializedVersion: 2
+    rgba: 4278255360
+  colorRed:
+    serializedVersion: 2
+    rgba: 4278190335
