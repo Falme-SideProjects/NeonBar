@@ -21,27 +21,22 @@ public class PlayerBar : MonoBehaviour
 	private void OnEnable()
 	{
 		EventManager.OnWindowResized.AddListener(UpdateBarSize);
+		EventManager.OnBulletCollidedWithBar.AddListener(HitBulletInBar);
 	}
 
 	private void OnDisable()
 	{
 		EventManager.OnWindowResized.RemoveListener(UpdateBarSize);
+		EventManager.OnBulletCollidedWithBar.RemoveListener(HitBulletInBar);
 	}
 
 	private void Update()
 	{
 		VerifyPlayerChangedColor();
-		VerifyPlayerSimulatedHit();
 	}
 
 	#region Receive Collision Methods
-
-	private void VerifyPlayerSimulatedHit()
-	{
-		if (Input.GetKeyDown(KeyCode.Q)) HitBulletInBar(Enums.Colors.Green);
-		else if (Input.GetKeyDown(KeyCode.W)) HitBulletInBar(Enums.Colors.Red);
-	}
-
+	
 	private void HitBulletInBar(Enums.Colors bulletColor)
 	{
 		if(this.currentColor.Equals(bulletColor))

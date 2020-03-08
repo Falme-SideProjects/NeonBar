@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 
 	private BulletView bulletView;
 	private bool directionUp;
+	private Enums.Colors currentColor = Enums.Colors.Green;
 
     void Awake()
     {
@@ -17,7 +18,14 @@ public class Bullet : MonoBehaviour
 	private void Start()
 	{
 		int rand = Random.Range(0, 100);
-		Color32 color = (rand < 50 ? Color.green : Color.red);
+		Color32 color = Color.green;
+
+		if(rand>50)
+		{
+			currentColor = Enums.Colors.Red;
+			color = Color.red;
+		}
+
 		bulletView.ChangeColor(color);
 
 		if (transform.localPosition.y < 0f) directionUp = true;
@@ -39,6 +47,7 @@ public class Bullet : MonoBehaviour
 		if(transform.localPosition.y < bulletData.distanceToCollide &&
 			transform.localPosition.y > -bulletData.distanceToCollide)
 		{
+			EventManager.OnBulletCollidedWithBar.Invoke(currentColor);
 			Destroy(gameObject);
 		}
 	}

@@ -9,7 +9,8 @@ public class BulletsManager : MonoBehaviour
 	private Coroutine bulletsGenerationCoroutine;
 	private bool spawnDirection;
 
-	private const float spawnBulletDistance = 7f; 
+	private const float spawnBulletYDistance = 7f;
+	private const float spawnBulletXDivisor = 137.79f;
 
 	private void Awake()
 	{
@@ -44,7 +45,16 @@ public class BulletsManager : MonoBehaviour
 	private void CreateNewBullet(bool up)
 	{
 		GameObject _bullet = Instantiate(bulletPrefab, transform);
-		_bullet.transform.localPosition = transform.localPosition + ( (up ? Vector3.up:Vector3.down) * spawnBulletDistance);
+		_bullet.transform.localPosition = transform.localPosition + ( (up ? Vector3.up:Vector3.down) * spawnBulletYDistance);
+
+		float _distanceSpawnX = MaxDistanceToSpawnBulletInX(Screen.width);
+
+		_bullet.transform.localPosition += Vector3.right * Random.Range(-_distanceSpawnX, _distanceSpawnX);
+	}
+
+	public float MaxDistanceToSpawnBulletInX(int screenWidth)
+	{
+		return screenWidth / spawnBulletXDivisor;
 	}
 	
 }
