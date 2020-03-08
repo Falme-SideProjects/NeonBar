@@ -7,4 +7,12 @@ public class Enums
 		Green,
 		Red
 	}
+
+	public enum GameDifficulty
+	{
+		Easy,
+		Medium,
+		Hard,
+		VeryHard
+	}
 }
