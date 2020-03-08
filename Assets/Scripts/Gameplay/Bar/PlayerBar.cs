@@ -42,10 +42,10 @@ public class PlayerBar : MonoBehaviour
 	{
 		if(this.colorState.currentColor.Equals(bulletColor))
 		{
-			Debug.Log("Right color, +1 Point");
+			EventManager.OnPlayerScoredPoint.Invoke();
 		} else
 		{
-			Debug.Log("Wrong Color, No Points");
+			EventManager.OnPlayerLostLife.Invoke();
 		}
 	}
 
