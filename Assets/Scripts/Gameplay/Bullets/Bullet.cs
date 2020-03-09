@@ -31,6 +31,16 @@ public class Bullet : MonoBehaviour
 		if (transform.localPosition.y < 0f) directionUp = true;
 	}
 
+	private void OnEnable()
+	{
+		EventManager.OnDestroyAllBullets.AddListener(OnDestroyAllBullets);
+	}
+
+	private void OnDisable()
+	{
+		EventManager.OnDestroyAllBullets.RemoveListener(OnDestroyAllBullets);
+	}
+
 	void Update()
     {
 		MoveBulletDown();
@@ -50,5 +60,10 @@ public class Bullet : MonoBehaviour
 			EventManager.OnBulletCollidedWithBar.Invoke(colorState.currentColor);
 			Destroy(gameObject);
 		}
+	}
+
+	private void OnDestroyAllBullets()
+	{
+		Destroy(gameObject);
 	}
 }

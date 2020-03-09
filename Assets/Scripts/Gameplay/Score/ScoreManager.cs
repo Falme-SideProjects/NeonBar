@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 	private ScoreManagerView scoreManagerView;
 
 	private Enums.GameDifficulty gameDifficulty = Enums.GameDifficulty.Easy;
+	private Enums.GameState gameState = Enums.GameState.MainMenu;
 
 	private void Awake()
 	{
@@ -16,11 +17,13 @@ public class ScoreManager : MonoBehaviour
 	private void OnEnable()
 	{
 		EventManager.OnPlayerScoredPoint.AddListener(AddScore);
+		EventManager.OnSetGameState.AddListener(OnSetGameState);
 	}
 
 	private void OnDisable()
 	{
 		EventManager.OnPlayerScoredPoint.RemoveListener(AddScore);
+		EventManager.OnSetGameState.RemoveListener(OnSetGameState);
 	}
 
 	private void Update()
@@ -43,7 +46,7 @@ public class ScoreManager : MonoBehaviour
 	private void AddScore()
 	{
 		AddValueToCurrentScore(1);
-		scoreManagerView.SetCurrentScore(score);
+		SetScore(score);
 	}
 
 	public void AddValueToCurrentScore(int value)
@@ -80,6 +83,40 @@ public class ScoreManager : MonoBehaviour
 				break;
 		}
 
-		scoreManagerView.SetCurrentScore(score);
+		SetScore(score);
+	}
+
+	private void OnSetGameState(Enums.GameState state)
+	{
+		gameState = state;
+
+		if (state.Equals(Enums.GameState.Gameplay))
+		{
+			ResetCurrentScores();
+			SetScore(score);
+		}
+		else
+		{
+			SetScore(score);
+		}
+	}
+
+	private void ResetCurrentScores()
+	{
+		this.scoreEasy.currentScore =
+		this.scoreMedium.currentScore =
+		this.scoreHard.currentScore =
+		this.scoreVeryHard.currentScore = 0;
+	}
+
+	private void SetScore(Score _score)
+	{
+		if(gameState.Equals(Enums.GameState.MainMenu))
+		{
+			scoreManagerView.SetCurrentHighScore(_score);
+		} else
+		{
+			scoreManagerView.SetCurrentScore(_score);
+		}
 	}
 }

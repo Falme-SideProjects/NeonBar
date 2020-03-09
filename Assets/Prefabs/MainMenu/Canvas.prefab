@@ -127,7 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorsData: {fileID: 11400000, guid: 9f718159f9a6ce44eb599e6eeae752e0, type: 2}
+  mainMenuUI: {fileID: 1645628076319802335}
   difficultyText: {fileID: 1176524355213064731}
+  livesText: {fileID: 528645058555809150}
 --- !u!223 &3914021921961161262
 Canvas:
   m_ObjectHideFlags: 0
@@ -285,6 +287,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 611754926791876381}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &528645058555809150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1093103933359542883, guid: b542cb2dce4187b44b3152ae8197a77a,
+    type: 3}
+  m_PrefabInstance: {fileID: 611754926791876381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4056177771102567785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,6 +453,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e824eebda4b8604e90c5084036c70bd, type: 3}
+--- !u!1 &1645628076319802335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3358561848786222774, guid: 0e824eebda4b8604e90c5084036c70bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4056177771102567785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1645628076319802334 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3358561848786222775, guid: 0e824eebda4b8604e90c5084036c70bd,

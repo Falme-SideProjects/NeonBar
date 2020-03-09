@@ -51,6 +51,8 @@ public class LivesManager : MonoBehaviour
 
 	private void CallGameOver()
 	{
-		UnityEditor.EditorApplication.isPlaying = false;
+		EventManager.OnDestroyAllBullets.Invoke();
+		EventManager.OnSetGameState.Invoke(Enums.GameState.MainMenu);
+		ResetLives();
 	}
 }

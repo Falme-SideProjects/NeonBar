@@ -13,7 +13,11 @@ public class UIManagerView : MonoBehaviour
 	[SerializeField] private ColorsDataScriptableObject colorsData;
 
 	[Header("Main Menu")]
+	[SerializeField] private GameObject mainMenuUI;
 	[SerializeField] private TextMeshProUGUI difficultyText;
+
+	[Header("Gameplay")]
+	[SerializeField] private TextMeshProUGUI livesText;
 
 	
 
@@ -40,6 +44,26 @@ public class UIManagerView : MonoBehaviour
 			default:
 				break;
 		}
+	}
+
+	public void HideMainMenuUI()
+	{
+		mainMenuUI.SetActive(false);
+	}
+
+	public void ShowMainMenuUI()
+	{
+		mainMenuUI.SetActive(true);
+	}
+
+	public void ShowGameplayUI()
+	{
+		livesText.gameObject.SetActive(true);
+	}
+
+	public void HideGameplayUI()
+	{
+		livesText.gameObject.SetActive(false);
 	}
 
 }

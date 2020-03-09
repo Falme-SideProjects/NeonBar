@@ -16,15 +16,27 @@ public class BulletsManager : MonoBehaviour
 	{
 		bulletsManagerView = GetComponent<BulletsManagerView>();
 	}
-
-	public void Start()
+	
+	private void OnEnable()
 	{
-		bulletsGenerationCoroutine = StartCoroutine(GenerateBullets());
+		EventManager.OnSetGameState.AddListener(OnSetGameState);
 	}
 
-	public void Update()
+	private void OnDisable()
 	{
-		if (Input.GetKeyDown(KeyCode.Alpha0)) CancelBulletsGeneration();
+		EventManager.OnSetGameState.RemoveListener(OnSetGameState);
+	}
+
+	private void OnSetGameState(Enums.GameState state)
+	{
+		if(state.Equals(Enums.GameState.Gameplay))
+		{
+			bulletsGenerationCoroutine = StartCoroutine(GenerateBullets());
+		} else
+		{
+			if(bulletsGenerationCoroutine != null)
+				StopCoroutine(bulletsGenerationCoroutine);
+		}
 	}
 
 	private IEnumerator GenerateBullets()
