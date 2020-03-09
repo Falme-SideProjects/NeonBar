@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class UIManagerView : MonoBehaviour
+{
+	private const string easyString = "EASY",
+							mediumString = "MEDIUM",
+							hardString = "HARD",
+							veryHardString = "VERY HARD";
+
+	[SerializeField] private ColorsDataScriptableObject colorsData;
+
+	[Header("Main Menu")]
+	[SerializeField] private TextMeshProUGUI difficultyText;
+
+	
+
+	public void ChangeDifficultyText(Enums.GameDifficulty newDifficulty)
+	{
+		switch(newDifficulty)
+		{
+			case Enums.GameDifficulty.Easy:
+				this.difficultyText.text = easyString;
+				this.difficultyText.color = colorsData.colorEasy;
+				break;
+			case Enums.GameDifficulty.Medium:
+				this.difficultyText.text = mediumString;
+				this.difficultyText.color = colorsData.colorMedium;
+				break;
+			case Enums.GameDifficulty.Hard:
+				this.difficultyText.text = hardString;
+				this.difficultyText.color = colorsData.colorHard;
+				break;
+			case Enums.GameDifficulty.VeryHard:
+				this.difficultyText.text = veryHardString;
+				this.difficultyText.color = colorsData.colorVeryHard;
+				break;
+			default:
+				break;
+		}
+	}
+
+}

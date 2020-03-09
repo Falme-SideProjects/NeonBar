@@ -4,6 +4,7 @@ public static class EventManager
 {
 	//GameState
 	public static EnumGameStateEvent OnSetGameState = new EnumGameStateEvent();
+	public static EnumDifficultyEvent OnChangedGameDifficulty = new EnumDifficultyEvent();
 
 	//Gameplay
 	public static UnityEvent OnWindowResized = new UnityEvent();
@@ -14,3 +15,4 @@ public static class EventManager
 
 public class EnumColorEvent : UnityEvent<Enums.Colors> { }
 public class EnumGameStateEvent : UnityEvent<Enums.GameState> { }
+public class EnumDifficultyEvent : UnityEvent<Enums.GameDifficulty> { }

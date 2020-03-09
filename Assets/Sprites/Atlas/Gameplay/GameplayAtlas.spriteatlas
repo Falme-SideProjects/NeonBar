@@ -42,13 +42,15 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 506d05bd16078314e917bf67b79278bf, type: 3}
-    totalSpriteSurfaceArea: 8192
+    totalSpriteSurfaceArea: 12288
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: f9d64de25dc9a2843bceee7a69f6b2be, type: 3}
   - {fileID: 21300000, guid: 47c9dddbf45f9b54da67d2293c6a87e5, type: 3}
   - {fileID: 21300000, guid: 9ffdb61d9a4e35044ba1f9f324f615b1, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Arrow-Solid
   - Border-Glow
   - Border-Solid
   m_Tag: GameplayAtlas

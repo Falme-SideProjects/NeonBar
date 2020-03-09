@@ -18,3 +18,15 @@ MonoBehaviour:
   colorRed:
     serializedVersion: 2
     rgba: 4278190335
+  colorEasy:
+    serializedVersion: 2
+    rgba: 4287496019
+  colorMedium:
+    serializedVersion: 2
+    rgba: 4285263871
+  colorHard:
+    serializedVersion: 2
+    rgba: 4294953859
+  colorVeryHard:
+    serializedVersion: 2
+    rgba: 4278190335
