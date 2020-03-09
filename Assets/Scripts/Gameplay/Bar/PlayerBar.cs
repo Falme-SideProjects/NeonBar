@@ -77,13 +77,13 @@ public class PlayerBar : MonoBehaviour
 	private void UpdateBarSize()
 	{
 		float _windowWidth = GetWindowWidth();
-		float _barWidth = GetBarWidthBasedOnWindowWidth(_windowWidth);
+		float _barWidth = GetBarWidthBasedOnWindowWidth(_windowWidth, playerBarData.BarDivisor);
 		playerBarView.ChangeBarSize(_barWidth);
 	}
 
-	public float GetBarWidthBasedOnWindowWidth(float windowWidth)
+	public float GetBarWidthBasedOnWindowWidth(float windowWidth, float divisor)
 	{
-		float result = windowWidth / playerBarData.BarDivisor;
+		float result = windowWidth / divisor;
 		return (float)Math.Round(result, 2);
 	}
     
