@@ -23,14 +23,6 @@ public class UIManager : MonoBehaviour
 		EventManager.OnSetGameState.RemoveListener(OnSetGameState);
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Q)) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.Easy);
-		else if (Input.GetKeyDown(KeyCode.W)) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.Medium);
-		else if (Input.GetKeyDown(KeyCode.E)) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.Hard);
-		else if (Input.GetKeyDown(KeyCode.R)) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.VeryHard);
-	}
-
 	private void OnChangedGameDifficulty(Enums.GameDifficulty newDifficulty)
 	{
 		uiManagerView.ChangeDifficultyText(newDifficulty);

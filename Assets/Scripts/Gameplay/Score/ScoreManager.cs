@@ -16,24 +16,18 @@ public class ScoreManager : MonoBehaviour
 
 	private void OnEnable()
 	{
+		EventManager.OnChangedGameDifficulty.AddListener(ChangeScoreDifficulty);
 		EventManager.OnPlayerScoredPoint.AddListener(AddScore);
 		EventManager.OnSetGameState.AddListener(OnSetGameState);
 	}
 
 	private void OnDisable()
 	{
+		EventManager.OnChangedGameDifficulty.RemoveListener(ChangeScoreDifficulty);
 		EventManager.OnPlayerScoredPoint.RemoveListener(AddScore);
 		EventManager.OnSetGameState.RemoveListener(OnSetGameState);
 	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.T)) ChangeScoreDifficulty(Enums.GameDifficulty.Easy);
-		else if (Input.GetKeyDown(KeyCode.Y)) ChangeScoreDifficulty(Enums.GameDifficulty.Medium);
-		else if (Input.GetKeyDown(KeyCode.U)) ChangeScoreDifficulty(Enums.GameDifficulty.Hard);
-		else if (Input.GetKeyDown(KeyCode.I)) ChangeScoreDifficulty(Enums.GameDifficulty.VeryHard);
-	}
-
+	
 	public void InitializeScore()
 	{
 		scoreEasy = new Score();

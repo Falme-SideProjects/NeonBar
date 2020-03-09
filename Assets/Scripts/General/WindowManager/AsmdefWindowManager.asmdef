@@ -1,7 +1,8 @@
 {
     "name": "AsmdefWindowManager",
     "references": [
-        "GUID:b318c6ab376669c4d99d81c96154addc"
+        "GUID:b318c6ab376669c4d99d81c96154addc",
+        "GUID:904b329a2d1af154ebf37f7961618d5f"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
