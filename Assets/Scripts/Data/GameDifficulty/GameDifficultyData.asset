@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f617a90f39c214591c67d2c8e5041c, type: 3}
   m_Name: GameDifficultyData
   m_EditorClassIdentifier: 
-  easyDifficulty: {fileID: 0}
-  mediumDifficulty: {fileID: 0}
-  hardDifficulty: {fileID: 0}
-  veryHardDifficulty: {fileID: 0}
+  easyDifficulty: {fileID: 11400000, guid: 7fae132bf95d8f9439df07c81a0e6e08, type: 2}
+  mediumDifficulty: {fileID: 11400000, guid: e7eb2d3f23f61e54a9cb0a863b149443, type: 2}
+  hardDifficulty: {fileID: 11400000, guid: dc37b0acd08226449a2fdfb3eb0a5c33, type: 2}
+  veryHardDifficulty: {fileID: 11400000, guid: af826033773fae2488bc8d9767dc59ac, type: 2}

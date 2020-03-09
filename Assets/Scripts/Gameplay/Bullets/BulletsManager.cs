@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class BulletsManager : MonoBehaviour
 {
+	[SerializeField] private GameDifficultyScriptableObject gameDifficultyData;
 	[SerializeField] private GameObject bulletPrefab;
 
 	private BulletsManagerView bulletsManagerView;
 	private Coroutine bulletsGenerationCoroutine;
 	private bool spawnDirection;
+	private float spawnTimeDivisor;
 
 	private const float spawnBulletYDistance = 7f;
 	private const float spawnBulletXDivisor = 137.79f;
@@ -19,11 +21,13 @@ public class BulletsManager : MonoBehaviour
 	
 	private void OnEnable()
 	{
+		EventManager.OnChangedGameDifficulty.AddListener(OnChangedGameDifficulty);
 		EventManager.OnSetGameState.AddListener(OnSetGameState);
 	}
 
 	private void OnDisable()
 	{
+		EventManager.OnChangedGameDifficulty.RemoveListener(OnChangedGameDifficulty);
 		EventManager.OnSetGameState.RemoveListener(OnSetGameState);
 	}
 
@@ -43,7 +47,7 @@ public class BulletsManager : MonoBehaviour
 	{
 		while(true)
 		{
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds((1f/spawnTimeDivisor));
 			CreateNewBullet(spawnDirection);
 			spawnDirection = !spawnDirection;
 		}
@@ -68,5 +72,27 @@ public class BulletsManager : MonoBehaviour
 	{
 		return screenWidth / spawnBulletXDivisor;
 	}
-	
+
+	private void OnChangedGameDifficulty(Enums.GameDifficulty difficulty)
+	{
+		switch (difficulty)
+		{
+			case Enums.GameDifficulty.Easy:
+				spawnTimeDivisor = gameDifficultyData.easyDifficulty.spawnIntervalModifier;
+				break;
+			case Enums.GameDifficulty.Medium:
+				spawnTimeDivisor = gameDifficultyData.mediumDifficulty.spawnIntervalModifier;
+				break;
+			case Enums.GameDifficulty.Hard:
+				spawnTimeDivisor = gameDifficultyData.hardDifficulty.spawnIntervalModifier;
+				break;
+			case Enums.GameDifficulty.VeryHard:
+				spawnTimeDivisor = gameDifficultyData.veryHardDifficulty.spawnIntervalModifier;
+				break;
+			default:
+				break;
+		}
+	}
+
+
 }

@@ -5,4 +5,5 @@ using UnityEngine;
 public class DifficultyAttributeScriptableObject : ScriptableObject
 {
 	public float bulletVelocityModifier = 1f;
+	public float spawnIntervalModifier = 1f;
 }

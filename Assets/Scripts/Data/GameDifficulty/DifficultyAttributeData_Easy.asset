@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DifficultyAttributeData_Easy
   m_EditorClassIdentifier: 
   bulletVelocityModifier: 1
+  spawnIntervalModifier: 1
