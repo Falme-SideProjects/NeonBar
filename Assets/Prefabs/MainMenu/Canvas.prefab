@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1645628075766519970}
   - component: {fileID: 1645628075766519971}
   - component: {fileID: 1645628075766519968}
-  - component: {fileID: 1645628075766519969}
   - component: {fileID: 1288978200506753972}
   - component: {fileID: 7390556134259238703}
   m_Layer: 5
@@ -85,23 +84,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &1645628075766519969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645628075766519982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &1288978200506753972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,41 +397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 121882961151753297, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 20.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 121882961151753297, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889528222363846514, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889528222363846514, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889528222363846514, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889528222363846514, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2889528222363846514, guid: 0e824eebda4b8604e90c5084036c70bd,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e824eebda4b8604e90c5084036c70bd, type: 3}

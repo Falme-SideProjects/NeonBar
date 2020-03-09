@@ -10,8 +10,8 @@ public static class EventManager
 	public static UnityEvent OnWindowResized = new UnityEvent();
 	public static UnityEvent OnPlayerScoredPoint = new UnityEvent();
 	public static UnityEvent OnPlayerLostLife = new UnityEvent();
-	public static EnumColorEvent OnBulletCollidedWithBar = new EnumColorEvent();
 	public static UnityEvent OnDestroyAllBullets = new UnityEvent();
+	public static EnumColorEvent OnBulletCollidedWithBar = new EnumColorEvent();
 }
 
 public class EnumColorEvent : UnityEvent<Enums.Colors> { }

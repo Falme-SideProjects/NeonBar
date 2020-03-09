@@ -5,19 +5,13 @@ public class BulletsManager : MonoBehaviour
 {
 	[SerializeField] private GameDifficultyScriptableObject gameDifficultyData;
 	[SerializeField] private GameObject bulletPrefab;
-
-	private BulletsManagerView bulletsManagerView;
+	
 	private Coroutine bulletsGenerationCoroutine;
 	private bool spawnDirection;
 	private float spawnTimeDivisor;
 
 	private const float spawnBulletYDistance = 7f;
 	private const float spawnBulletXDivisor = 137.79f;
-
-	private void Awake()
-	{
-		bulletsManagerView = GetComponent<BulletsManagerView>();
-	}
 	
 	private void OnEnable()
 	{
@@ -90,6 +84,7 @@ public class BulletsManager : MonoBehaviour
 				spawnTimeDivisor = gameDifficultyData.veryHardDifficulty.spawnIntervalModifier;
 				break;
 			default:
+				Debug.LogError("Difficulty not Set Correctly");
 				break;
 		}
 	}

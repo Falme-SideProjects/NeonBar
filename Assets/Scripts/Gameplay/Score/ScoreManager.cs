@@ -74,6 +74,7 @@ public class ScoreManager : MonoBehaviour
 				score = scoreVeryHard;
 				break;
 			default:
+				Debug.LogError("Difficulty not Set Correctly");
 				break;
 		}
 
@@ -87,12 +88,9 @@ public class ScoreManager : MonoBehaviour
 		if (state.Equals(Enums.GameState.Gameplay))
 		{
 			ResetCurrentScores();
-			SetScore(score);
 		}
-		else
-		{
-			SetScore(score);
-		}
+
+		SetScore(score);
 	}
 
 	private void ResetCurrentScores()

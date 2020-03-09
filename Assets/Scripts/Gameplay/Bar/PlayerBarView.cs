@@ -8,6 +8,7 @@ public class PlayerBarView : MonoBehaviour
 
 	private SpriteRenderer barSpriteRenderer, barGlowSpriteRenderer;
 
+	#region UnityMethods
 	public void Awake()
 	{
 		barSpriteRenderer = bar?.GetComponent<SpriteRenderer>();
@@ -16,7 +17,9 @@ public class PlayerBarView : MonoBehaviour
 		if (barSpriteRenderer == null) Debug.LogError("Sprite Bar was not set successfully");
 		if (barGlowSpriteRenderer == null) Debug.LogError("Sprite Bar Glow was not set successfully");
 	}
-	
+	#endregion
+
+	#region Size Methods
 	public void ChangeBarSize(float newSize)
 	{
 		if (newSize < 0) newSize = 0;
@@ -28,7 +31,17 @@ public class PlayerBarView : MonoBehaviour
 	{
 		return this.barSpriteRenderer.size.x;
 	}
+	#endregion
 
+	#region Color Methods
+	public void ChangeColor(Color32 newColor)
+	{
+		barSpriteRenderer.color =
+		barGlowSpriteRenderer.color = newColor;
+	}
+	#endregion
+
+	#region Getters/Setters
 	public GameObject GetBar()
 	{
 		return this.bar;
@@ -48,10 +61,5 @@ public class PlayerBarView : MonoBehaviour
 	{
 		this.barGlow = newObject;
 	}
-
-	public void ChangeColor(Color32 newColor)
-	{
-		barSpriteRenderer.color =
-		barGlowSpriteRenderer.color = newColor;
-	}
+	#endregion
 }

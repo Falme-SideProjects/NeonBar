@@ -8,6 +8,7 @@ public class PlayerBar : MonoBehaviour
 
 	private PlayerBarView playerBarView;
 
+	#region UnityMethods
 	private void Awake()
 	{
 		playerBarView = GetComponent<PlayerBarView>();
@@ -34,9 +35,10 @@ public class PlayerBar : MonoBehaviour
 	{
 		VerifyPlayerChangedColor();
 	}
+	#endregion
 
 	#region Receive Collision Methods
-	
+
 	private void HitBulletInBar(Enums.Colors bulletColor)
 	{
 		if(this.colorState.currentColor.Equals(bulletColor))

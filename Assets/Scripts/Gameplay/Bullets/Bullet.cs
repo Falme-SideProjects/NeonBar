@@ -11,7 +11,9 @@ public class Bullet : MonoBehaviour
 	private BulletView bulletView;
 	private bool directionUp;
 	private float velocityModifier;
+	private int randomColor;
 
+	#region UnityMethods
 	void Awake()
     {
 		bulletView = GetComponent<BulletView>();
@@ -19,31 +21,21 @@ public class Bullet : MonoBehaviour
 
 	private void Start()
 	{
-		int rand = Random.Range(0, 100);
-		Color32 color = colorState.colorsData.colorGreen;
-
-		if(rand>50)
-		{
-			colorState.currentColor = Enums.Colors.Red;
-			color = colorState.colorsData.colorRed;
-		}
-
-		bulletView.ChangeColor(color);
-
-		if (transform.localPosition.y < 0f) directionUp = true;
+		CheckBulletColor();
+		CheckBulletDirection();
 		UpdateGameDifficulty(WindowManager.gameDifficulty);
 	}
 
 	private void OnEnable()
 	{
 		EventManager.OnChangedGameDifficulty.AddListener(UpdateGameDifficulty);
-		EventManager.OnDestroyAllBullets.AddListener(OnDestroyAllBullets);
+		EventManager.OnDestroyAllBullets.AddListener(DestroyBullet);
 	}
 
 	private void OnDisable()
 	{
 		EventManager.OnChangedGameDifficulty.RemoveListener(UpdateGameDifficulty);
-		EventManager.OnDestroyAllBullets.RemoveListener(OnDestroyAllBullets);
+		EventManager.OnDestroyAllBullets.RemoveListener(DestroyBullet);
 	}
 
 	void Update()
@@ -51,10 +43,34 @@ public class Bullet : MonoBehaviour
 		MoveBulletDown();
 		CheckBulletCollided();
 	}
+	#endregion
+
+	#region Bullet Behaviour Methods
+	private void CheckBulletColor()
+	{
+		randomColor = Random.Range(0, 100);
+		Color32 color = colorState.colorsData.colorGreen;
+
+		if (randomColor > 50)
+		{
+			colorState.currentColor = Enums.Colors.Red;
+			color = colorState.colorsData.colorRed;
+		}
+
+		bulletView.ChangeColor(color);
+	}
+
+	private void CheckBulletDirection()
+	{
+		if (transform.localPosition.y < 0f) directionUp = true;
+	}
 
 	private void MoveBulletDown()
 	{
-		transform.position += (directionUp ? Vector3.up:Vector3.down) * (bulletData.bulletVelocity * velocityModifier) * Time.deltaTime;
+		Vector3 _direction = (directionUp ? Vector3.up : Vector3.down);
+		float _bulletVelocity = (bulletData.bulletVelocity * velocityModifier);
+
+		transform.position += _direction * _bulletVelocity * Time.deltaTime;
 	}
 
 	private void CheckBulletCollided()
@@ -63,15 +79,17 @@ public class Bullet : MonoBehaviour
 			transform.localPosition.y > -bulletData.distanceToCollide)
 		{
 			EventManager.OnBulletCollidedWithBar.Invoke(colorState.currentColor);
-			Destroy(gameObject);
+			DestroyBullet();
 		}
 	}
 
-	private void OnDestroyAllBullets()
+	private void DestroyBullet()
 	{
 		Destroy(gameObject);
 	}
+	#endregion
 
+	#region Bullet Difficulty Methods
 	private void UpdateGameDifficulty(Enums.GameDifficulty difficulty)
 	{
 		switch(difficulty)
@@ -89,7 +107,9 @@ public class Bullet : MonoBehaviour
 				velocityModifier = gameDifficultyData.veryHardDifficulty.bulletVelocityModifier;
 				break;
 			default:
+				Debug.LogError("GameDifficulty Not Set Correctly");
 				break;
 		}
 	}
+	#endregion
 }

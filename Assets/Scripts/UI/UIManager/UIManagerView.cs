@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class UIManagerView : MonoBehaviour
@@ -42,6 +40,7 @@ public class UIManagerView : MonoBehaviour
 				this.difficultyText.color = colorsData.colorVeryHard;
 				break;
 			default:
+				Debug.LogError("Difficulty not Set Correctly");
 				break;
 		}
 	}

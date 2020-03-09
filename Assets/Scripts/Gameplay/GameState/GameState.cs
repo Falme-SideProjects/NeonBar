@@ -4,6 +4,8 @@ public class GameState : MonoBehaviour
 {
 	public Enums.GameState gameState;
 
+
+	#region UnityMethods
 	private void Awake()
 	{
 		gameState = Enums.GameState.MainMenu;
@@ -28,6 +30,7 @@ public class GameState : MonoBehaviour
 	{
 		EventManager.OnSetGameState.RemoveListener(OnSetGameState);
 	}
+	#endregion
 
 	private void OnSetGameState(Enums.GameState state)
 	{

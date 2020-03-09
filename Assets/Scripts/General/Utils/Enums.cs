@@ -2,6 +2,12 @@
 
 public class Enums
 {
+	public enum GameState
+	{
+		MainMenu,
+		Gameplay
+	}
+
     public enum Colors
 	{
 		Green,
@@ -14,11 +20,5 @@ public class Enums
 		Medium,
 		Hard,
 		VeryHard
-	}
-
-	public enum GameState
-	{
-		MainMenu,
-		Gameplay
 	}
 }

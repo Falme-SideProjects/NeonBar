@@ -7,6 +7,12 @@ public class WindowManager : MonoBehaviour
 	public static Enums.GameDifficulty gameDifficulty;
 	private int cachedScreenWidth;
 
+	private const int veryHardDifficultyWidth = 900,
+						hardDifficultyWidth = 600,
+						mediumDifficultyWidth = 300;
+
+	private const int screenLockedHeight = 575;
+
 	private void Start()
 	{
 		cachedScreenWidth = Screen.width;
@@ -21,7 +27,7 @@ public class WindowManager : MonoBehaviour
 
 	private void VerifyScreenHeightChanged()
 	{
-		if (Screen.height != 575) Screen.SetResolution(Screen.width, 575, false);
+		if (Screen.height != screenLockedHeight) Screen.SetResolution(Screen.width, screenLockedHeight, false);
 	}
 
 	private void VerifyScreenWidthChanged()
@@ -42,9 +48,10 @@ public class WindowManager : MonoBehaviour
 	private void CheckWidthDifficultyLimits(int screenWidth)
 	{
 		Enums.GameDifficulty _difficulty = Enums.GameDifficulty.Easy;
-		if (screenWidth > 900) _difficulty = Enums.GameDifficulty.VeryHard;
-		else if (screenWidth > 600) _difficulty = Enums.GameDifficulty.Hard;
-		else if (screenWidth > 300) _difficulty = Enums.GameDifficulty.Medium;
+
+		if (screenWidth > veryHardDifficultyWidth) _difficulty = Enums.GameDifficulty.VeryHard;
+		else if (screenWidth > hardDifficultyWidth) _difficulty = Enums.GameDifficulty.Hard;
+		else if (screenWidth > mediumDifficultyWidth) _difficulty = Enums.GameDifficulty.Medium;
 
 		gameDifficulty = _difficulty;
 		EventManager.OnChangedGameDifficulty.Invoke(_difficulty);

@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
+﻿using NUnit.Framework;
 
 namespace Tests
 {
-    public class ScoreTests
+	public class ScoreTests
     {
 		Score score;
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LivesManager : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class LivesManager : MonoBehaviour
 
 	private int currentLives;
 
+	#region UnityMethods
 	private void Awake()
 	{
 		livesManagerView = GetComponent<LivesManagerView>();
@@ -29,6 +28,7 @@ public class LivesManager : MonoBehaviour
 	{
 		ResetLives();
 	}
+	#endregion
 
 	private void UpdateLives()
 	{
