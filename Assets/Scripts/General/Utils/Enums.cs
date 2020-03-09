@@ -15,4 +15,10 @@ public class Enums
 		Hard,
 		VeryHard
 	}
+
+	public enum GameState
+	{
+		MainMenu,
+		Gameplay
+	}
 }
