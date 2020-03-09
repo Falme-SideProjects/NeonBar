@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WindowManager : MonoBehaviour
 {
+	public static Enums.GameDifficulty gameDifficulty;
 	private int cachedScreenWidth;
 
 	private void Start()
@@ -40,9 +41,12 @@ public class WindowManager : MonoBehaviour
 
 	private void CheckWidthDifficultyLimits(int screenWidth)
 	{
-		if (screenWidth > 900) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.VeryHard);
-		else if (screenWidth > 600) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.Hard);
-		else if (screenWidth > 300) EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.Medium);
-		else  EventManager.OnChangedGameDifficulty.Invoke(Enums.GameDifficulty.Easy);
+		Enums.GameDifficulty _difficulty = Enums.GameDifficulty.Easy;
+		if (screenWidth > 900) _difficulty = Enums.GameDifficulty.VeryHard;
+		else if (screenWidth > 600) _difficulty = Enums.GameDifficulty.Hard;
+		else if (screenWidth > 300) _difficulty = Enums.GameDifficulty.Medium;
+
+		gameDifficulty = _difficulty;
+		EventManager.OnChangedGameDifficulty.Invoke(_difficulty);
 	}
 }

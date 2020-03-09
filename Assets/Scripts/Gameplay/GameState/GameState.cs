@@ -2,7 +2,7 @@
 
 public class GameState : MonoBehaviour
 {
-	private Enums.GameState gameState;
+	public Enums.GameState gameState;
 
 	private void Awake()
 	{
@@ -31,7 +31,7 @@ public class GameState : MonoBehaviour
 
 	private void OnSetGameState(Enums.GameState state)
 	{
-		this.gameState = state;
+		gameState = state;
 	}
 
 	private void VerifyGoToGameplay()
