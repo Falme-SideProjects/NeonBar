@@ -10,7 +10,6 @@ public class PlayerBar : MonoBehaviour
 
 	private void Awake()
 	{
-		//colorState = new ColorState();
 		playerBarView = GetComponent<PlayerBarView>();
 	}
 
@@ -55,8 +54,8 @@ public class PlayerBar : MonoBehaviour
 
 	private void VerifyPlayerChangedColor()
 	{
-		if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeToGreen();
-		else if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeToRed();
+		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.LeftArrow)) ChangeToGreen();
+		else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.RightArrow)) ChangeToRed();
 	}
 
 	private void ChangeToGreen()
